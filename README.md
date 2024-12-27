@@ -1,1 +1,1 @@
-# EDISApplication-React
+# EDISApplication
