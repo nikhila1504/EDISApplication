@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import LoginComponent from "./components/loginComponent.tsx";
-import "primereact/resources/themes/saga-blue/theme.css"; /* Theme */
-import "primereact/resources/primereact.min.css"; /* Core styles */
-import "primeicons/primeicons.css"; /* Icons */
+import LoginComponent from "./components/LoginComponent.tsx";
+import "primereact/resources/themes/saga-blue/theme.css";
+import "primereact/resources/primereact.min.css"; 
+import "primeicons/primeicons.css"; 
 
 function App() {
   return (
@@ -13,8 +13,7 @@ function App() {
       <div className="d-flex flex-column min-vh-100">
         <div className="container flex-fill">
           <Routes>
-            <Route exact path="/" element={<LoginComponent />} />
-
+            <Route  path="/" element={<LoginComponent />} />
           </Routes>
         </div>
       </div>

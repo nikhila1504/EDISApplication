@@ -1,63 +1,81 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { InputText } from 'primereact/inputtext';
+import { Button } from 'primereact/button';
+import { Password } from 'primereact/password';
+import { Card } from 'primereact/card';
+import { FloatLabel } from 'primereact/floatlabel';
+import { Checkbox } from 'primereact/checkbox';
+import { Link } from 'react-router-dom';
+import { Image } from 'primereact/image';
+import workersBoardLogo from '../images/workersBoardlogo.jpg';
 
-const loginComponent = () => {
+const LoginComponent = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [rememberMe, setRememberMe] = useState(false);
+
+  const handleLogin = () => {
+    console.log('Username:', username);
+    console.log('Password:', password);
+  };
   return (
-    <div>
-
-<section className="vh-100" style={{backgroundColor:' #9A616D'}}>
-  <div className="container py-5 h-100">
-    <div className="row d-flex justify-content-center align-items-center h-100">
-      <div className="col col-xl-10">
-        <div className="card" style={{borderRadius: '1 rem'}}>
-          <div className="row g-0">
-            <div className="col-md-6 col-lg-5 d-none d-md-block">
-              <img src="/enforcement.png"
-                alt="login form" className="img-fluid" style={{borderRadius: '1 rem 0 0 1 rem'}}/>
+    <section className="vh-100">
+      <div className="mt-4 d-flex align-items-center">
+        <Image src={workersBoardLogo} alt="Image" width="150" />
+        <h4 className="mb-3 text-nowrap text-primary" style={{marginLeft:'10px'}}>
+          State Board Of <br /> Worker's Compensation
+        </h4>
+      </div>
+      <div>
+      <h4 className="mb-3" style={{marginTop:'5%'}}>
+          <b>Welcome To State Board Of  Worker's Compensation Enforcement Division (EDIS)</b>
+      </h4>
+      </div>
+      <div className="d-flex justify-content-end align-items-start position-absolute top-0 end-0 p-4 pe-5 mt-4">
+        <div className="col-12">
+          <h4 className="mb-3 text-nowrap">
+            Enforcement Division <br /> Information System (EDIS)
+          </h4>
+          <Card className="border border-black p-4 " style={{ maxWidth: '800px' }}>
+            <h5 className="card-title text-center text-primary mb-4">Sign In</h5>
+            <div className="p-fluid">
+              <FloatLabel>
+                <label htmlFor="username">Username</label>
+                <InputText
+                  id="username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+              </FloatLabel>
+              <FloatLabel className="mt-4">
+                <label htmlFor="password">Password</label>
+                <Password
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  feedback={false}
+                />
+              </FloatLabel>
             </div>
-            <div className="col-md-6 col-lg-7 d-flex align-items-center">
-              <div className="card-body p-4 p-lg-5 text-black">
-
-                <form>
-
-                  <div className="d-flex align-items-center mb-3 pb-1">
-                    <i className="fas fa-cubes fa-2x me-3" style={{color:' #ff6219'}}></i>
-                    <span className="h1 fw-bold mb-0">Logo</span>
-                  </div>
-
-                  <h5 className="fw-normal mb-3 pb-3"  style={{letterSpacing: '1 px'}}>Sign into your account</h5>
-
-                  <div data-mdb-input-init className="form-outline mb-4">
-                    <input type="email" id="form2Example17" className="form-control form-control-lg" />
-                    <label className="form-label" htmlFor="form2Example17">Email address</label>
-                  </div>
-
-                  <div data-mdb-input-init className="form-outline mb-4">
-                    <input type="password" id="form2Example27" className="form-control form-control-lg" />
-                    <label className="form-label" htmlFor="form2Example27">Password</label>
-                  </div>
-
-                  <div className="pt-1 mb-4">
-                    <button data-mdb-button-init data-mdb-ripple-init className="btn btn-dark btn-lg btn-block" type="button">Login</button>
-                  </div>
-
-                  <a className="small text-muted" href="#!">Forgot password?</a>
-                  <p className="mb-5 pb-lg-2" style={{color:' #393f81'}}>Don't have an account? <a href="#!"
-                      style={{color:' #393f81'}}>Register here</a></p>
-                  <a href="#!" className="small text-muted">Terms of use.</a>
-                  <a href="#!" className="small text-muted">Privacy policy</a>
-                </form>
-
-              </div>
+            <div className="mt-3">
+              <Link to="/forgot-password" className="text-decoration-none text-primary">
+                Forgot Password?
+              </Link>
             </div>
-          </div>
+            <div className="mt-2">
+              <Checkbox
+                inputId="rememberMe"
+                checked={rememberMe}
+                onChange={(e) => setRememberMe(e.checked || false)}
+              />
+              <label className="ml-3">  Remember Me</label>
+            </div>
+            <Button label="Login" onClick={handleLogin} className="mt-4 w-100 p-button-lg" />
+          </Card>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
+  );
+};
 
-    </div>
-  )
-}
-
-export default loginComponent
+export default LoginComponent;

@@ -24,9 +24,9 @@
   color: white;
 }
 
-.App-link {
+/* .App-link {
   color: #61dafb;
-}
+} */
 
 @keyframes App-logo-spin {
   from {
@@ -38,7 +38,7 @@
 }
 
 
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -78,7 +78,7 @@
 }
 
 
-/* LoginPage.css */
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -145,4 +145,4 @@ p {
 .p-error {
     font-size: 0.875rem;
     color: #d32f2f;
-}
+} */
