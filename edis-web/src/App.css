@@ -22,6 +22,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  /* color:navy; */
 }
 
 /* .App-link {
@@ -36,8 +37,11 @@
     transform: rotate(360deg);
   }
 }
-
-
+@media (min-width: 1400px) {
+.container{
+  max-width:100% !important;
+}
+}
 /* .App {
   text-align: center;
 }

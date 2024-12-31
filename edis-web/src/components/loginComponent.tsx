@@ -18,26 +18,23 @@ const LoginComponent = () => {
     console.log('Username:', username);
     console.log('Password:', password);
   };
+
   return (
-    <section className="vh-100">
+    <section className="">
       <div className="mt-4 d-flex align-items-center">
         <Image src={workersBoardLogo} alt="Image" width="150" />
-        <h4 className="mb-3 text-nowrap text-primary" style={{marginLeft:'10px'}}>
+        <h4 className="mb-3 text-nowrap" style={{ marginLeft: '10px', color: '#0A3161' }}>
           State Board Of <br /> Worker's Compensation
         </h4>
       </div>
-      <div>
-      <h4 className="mb-3" style={{marginTop:'5%'}}>
+
+      <div className="d-flex align-items-center" style={{ justifyContent: 'space-between' }}>
+        <h4 className="mb-3" style={{ color: '#0A3161', flex: 2 }}>
           <b>Welcome To State Board Of  Worker's Compensation Enforcement Division (EDIS)</b>
-      </h4>
-      </div>
-      <div className="d-flex justify-content-end align-items-start position-absolute top-0 end-0 p-4 pe-5 mt-4">
-        <div className="col-12">
-          <h4 className="mb-3 text-nowrap">
-            Enforcement Division <br /> Information System (EDIS)
-          </h4>
-          <Card className="border border-black p-4 " style={{ maxWidth: '800px' }}>
-            <h5 className="card-title text-center text-primary mb-4">Sign In</h5>
+        </h4>
+        <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
+          <Card className="border border-black" style={{ maxWidth: '100%', width: '100%' }}>
+            <h5 className="card-title text-center mb-4" style={{ color: '#0A3161' }}>Sign In</h5>
             <div className="p-fluid">
               <FloatLabel>
                 <label htmlFor="username">Username</label>
@@ -49,16 +46,16 @@ const LoginComponent = () => {
               </FloatLabel>
               <FloatLabel className="mt-4">
                 <label htmlFor="password">Password</label>
-                <Password
+                <InputText
                   id="password"
+                  type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  feedback={false}
                 />
               </FloatLabel>
             </div>
             <div className="mt-3">
-              <Link to="/forgot-password" className="text-decoration-none text-primary">
+              <Link to="/forgot-password" className="text-decoration-none" style={{ color: '#0A3161' }}>
                 Forgot Password?
               </Link>
             </div>
@@ -70,7 +67,7 @@ const LoginComponent = () => {
               />
               <label className="ml-3">  Remember Me</label>
             </div>
-            <Button label="Login" onClick={handleLogin} className="mt-4 w-100 p-button-lg" />
+            <Button label="Login" onClick={handleLogin} className="mt-4 w-100 p-button-lg" style={{ backgroundColor: '#0A3161' }} />
           </Card>
         </div>
       </div>
