@@ -5,6 +5,7 @@ import LoginComponent from "./components/LoginComponent.tsx";
 import AddUser from "./components/AddUser.tsx";
 import HeaderComponent from "./components/HeaderComponent.tsx"
 import FooterComponent from "./components/FooterComponent.tsx";
+import RegistrationForm from "./components/RegistrationForm.tsx";
 import AddNewUser from "./components/AddNewUser.tsx";
 import "primereact/resources/themes/saga-blue/theme.css";
 import "primereact/resources/primereact.min.css"; 
@@ -21,8 +22,10 @@ function App() {
             <Route  path="/" element={<LoginComponent/>} />
             <Route  path="/addUser" element={<AddUser/>} />
             <Route path="/addNewUser" element={<AddNewUser />} />
+            <Route path="/userRegistration" element={<RegistrationForm />} />
           </Routes>
         </div>
+        <FooterComponent />
       </div>
     </Router>
   </div >
