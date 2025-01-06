@@ -10,7 +10,7 @@ import { Image } from 'primereact/image';
 import workersBoardLogo from '../images/workersBoardlogo.jpg';
 import georgia from '../images/georgia.png';
 
-const LoginComponent = () => {
+const LoginComponent: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
