@@ -124,7 +124,12 @@ const RegistrationForm: React.FC = () => {
 };
 
   return (
-    <Container style={{ marginTop: '5%' }}>
+    <Container style={{
+        marginTop: '5%',
+        maxWidth: '100%',
+        overflowX: 'auto', // Allow horizontal scrolling if needed
+        overflowY: 'auto', // Ensure vertical scrolling if content overflows
+      }}>
     <Row>
         <Col xs={12} md={8} className="mx-auto">
         <nav className="navbar navbar-light" style={{ backgroundColor: "#B31942" }}>
@@ -133,9 +138,9 @@ const RegistrationForm: React.FC = () => {
            <Card className="p-fluid d-flex justify-content-center" style={{ maxWidth: '100%'}}>
            
                    <form onSubmit={handleSubmit}>
-                       <Row className="mb-3 mt-4">
+                       <Row>
                        {/* First Name and Last Name */}
-                       <Col sm={12} md={6}>
+                       <Col sm={12} md={6} className='mt-3 mt-sm-3 mt-md-3'>
                            <div className="p-field">
                                <FloatLabel>
                                    <label htmlFor="firstName">First Name</label>
@@ -151,7 +156,7 @@ const RegistrationForm: React.FC = () => {
                            </div>
                        </Col>
                {/* Mailing Address */}
-               <Col sm={12}  md={6}>
+               <Col sm={12}  md={6} className='mt-3 mt-sm-3 mt-md-3'>
                            <div className="p-field">
                                <FloatLabel>  
                                    <label htmlFor="mailingAddress1">Mailing Address 1</label>
@@ -169,9 +174,9 @@ const RegistrationForm: React.FC = () => {
                        
                        </Row>
 
-                       <Row className="mb-3 mt-4">
+                       <Row >
 
-                       <Col sm={12} md={6}>
+                       <Col sm={12} md={6} className='mt-3 mt-sm-3 mt-md-3'>
                            <div className="p-field">
                            <FloatLabel>
                                <label htmlFor="lastName">Last Name</label>
@@ -187,7 +192,7 @@ const RegistrationForm: React.FC = () => {
                            </div>
                        </Col>
                        {/* Mailing Address */}
-                       <Col sm={12}  md={6}>
+                       <Col sm={12}  md={6} className='mt-3 mt-sm-3 mt-md-3'>
                            <div className="p-field">
                            <FloatLabel>
                            <label htmlFor="mailingAddress2">Mailing Address 2</label>
@@ -202,9 +207,9 @@ const RegistrationForm: React.FC = () => {
                            </div>
                        </Col>
                        </Row>
-                       <Row className="mb-3 mt-4">
+                       <Row>
                        {/* Suffix */}
-                       <Col sm={12} md={6}>
+                       <Col sm={12} md={6} className='mt-3 mt-sm-3 mt-md-3'>
                            <div className="p-field">
                            <FloatLabel>
                            <label htmlFor="suffix">Suffix</label>
@@ -219,7 +224,7 @@ const RegistrationForm: React.FC = () => {
                            </div>
                        </Col>
                        {/* City and State */}
-                       <Col sm={12} md={6}>
+                       <Col sm={12} md={6} className='mt-3 mt-sm-3 mt-md-3'>
                            <div className="p-field">
                            <FloatLabel>
                            <label htmlFor="city">City</label>
@@ -236,9 +241,9 @@ const RegistrationForm: React.FC = () => {
                        </Col>
                        </Row>
 
-                       <Row className="mb-3 mt-4">
+                       <Row>
 
-                       <Col sm={12} md={6}>
+                       <Col sm={12} md={6} className='mt-3 mt-sm-3 mt-md-3'>
                            <div className="p-field">
                            <FloatLabel>
                            <label htmlFor="securityRole">Security Role</label>
@@ -253,7 +258,7 @@ const RegistrationForm: React.FC = () => {
                            {errors.securityRole && <small className="p-error">{errors.securityRole}</small>}
                            </div>
                        </Col>
-                       <Col sm={12} md={6}>
+                       <Col sm={12} md={6} className='mt-3 mt-sm-3 mt-md-3'>
                            <div className="p-field">
                            <FloatLabel>
                            <label htmlFor="state">State</label>
@@ -269,8 +274,8 @@ const RegistrationForm: React.FC = () => {
                            </div>
                        </Col>
                        </Row>
-                       <Row className="mb-3 mt-4">
-                       <Col sm={12} md={6}>
+                       <Row>
+                       <Col sm={12} md={6} className='mt-3 mt-sm-3 mt-md-3'>
                            <div className="p-field">
                            <FloatLabel>
                            <label htmlFor="badgeNumber">Badge Number</label>
@@ -284,7 +289,7 @@ const RegistrationForm: React.FC = () => {
                        </FloatLabel>
                            </div>
                        </Col>
-                       <Col sm={12} md={4}>
+                       <Col sm={12} md={4} className='mt-3 mt-sm-3 mt-md-3'>
                            <div className="p-field">
                            <FloatLabel>
                            <label htmlFor="zip">ZIP Code</label>
@@ -299,7 +304,7 @@ const RegistrationForm: React.FC = () => {
                            {errors.zip && <small className="p-error">{errors.zip}</small>}
                            </div>
                        </Col>
-                       <Col sm={12} md={2}>
+                       <Col sm={12} md={2} className='mt-3 mt-sm-3 mt-md-3'>
                            <div className="p-field">
                            <FloatLabel>
                            <label htmlFor="zipExt">ZIP Ext</label>
@@ -316,9 +321,9 @@ const RegistrationForm: React.FC = () => {
 
                        </Row>
 
-                       <Row className="mb-3 mt-4">
+                       <Row>
 
-                       <Col sm={12} md={6}>
+                       <Col sm={12} md={6} className='mt-3 mt-sm-3 mt-md-3'>
                            <div className="p-field">
                        
                            <FloatLabel className="w-full md:w-14rem">
@@ -334,7 +339,7 @@ const RegistrationForm: React.FC = () => {
                            {errors.officeLocation && <small className="p-error">{errors.officeLocation}</small>}
                            </div>
                        </Col>
-                       <Col sm={12} md={4}>
+                       <Col sm={12} md={4} className='mt-3 mt-sm-3 mt-md-3'>
                            <div className="p-field">
                            <FloatLabel>
                            <label htmlFor="phone">Phone</label>
@@ -348,7 +353,7 @@ const RegistrationForm: React.FC = () => {
                            </FloatLabel>
                            </div>
                        </Col>
-                       <Col sm={12} md={2}>
+                       <Col sm={12} md={2} className='mt-3 mt-sm-3 mt-md-3'>
                            <div className="p-field">
                            <FloatLabel>
                            <label htmlFor="phoneExt">Phone Ext</label>
@@ -367,10 +372,10 @@ const RegistrationForm: React.FC = () => {
                        </Row>
                    
 
-                       <Row className="mb-3 mt-4">
+                       <Row>
                        
 
-                       <Col sm={12} md={6}>
+                       <Col sm={12} md={6} className='mt-3 mt-sm-3 mt-md-3'>
                            <div className="p-field">
                            <FloatLabel>
                            
@@ -385,7 +390,7 @@ const RegistrationForm: React.FC = () => {
                            {errors.password && <small className="p-error">{errors.password}</small>}
                            </div>
                        </Col>
-                       <Col sm={12} md={6}>
+                       <Col sm={12} md={6} className='mt-3 mt-sm-3 mt-md-3'>
                            <div className="p-field">
                            <FloatLabel>
                            
@@ -407,7 +412,7 @@ const RegistrationForm: React.FC = () => {
                        </Row>
             
                        {/* Submit Button */}
-                       <Button type="submit" label="Register" className="p-button p-button-primary w-100" style={{ backgroundColor: '#0A3161'}}/>
+                       <Button type="submit" label="Register" className="p-button p-button-primary w-100 mt-3" style={{ backgroundColor: '#0A3161'}}/>
                    </form>
                </Card>
                </Col>
