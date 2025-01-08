@@ -24,11 +24,15 @@ body {
 }
  .login-marquee-container {
   width: 100%;
-  background:linear-gradient(135deg, #B31942,#0A3161); 
+  /* background:linear-gradient(135deg, #B31942,#0A3161);  */
   overflow: hidden;
   padding: 10px 0;
 }
-
+.div{
+border:none !important; 
+outline :none !important;
+box-shadow:none !important;
+}
 .marquee-text {
   display: inline-block;
   white-space: nowrap;
@@ -112,8 +116,27 @@ body {
       width: 60px;
   }
 }
-
-
+.icon-color{
+  color:rgb(179, 25, 66);
+}
+.mobile-input {
+  width: 100%;
+}
+/* @media (max-width: 767px) {
+  .mobile-input {
+    width: 150% !important;  
+    margin-left: 0px !important;
+    margin-right: auto;  
+  }
+} */
+@media (max-width: 576px) {
+  .logo {
+      max-width: 140px !important;
+  }
+  .edis-logo {
+      max-width: 140px !important; 
+  }
+}
 .form-page {
     display: flex;
     justify-content: center;

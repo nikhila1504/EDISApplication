@@ -47,12 +47,12 @@ const LoginPage = () => {
 
   return (
     <div>
-     <div className="login-marquee-container">
+     {/* <div className="login-marquee-container">
            <div className="marquee-text">
                     <b>Welcome to the State Board of Worker’s Compensation Enforcement Division (EDIS)</b>
            </div>
-      </div>
-      <div className='login-section' style={{ backgroundImage: 'linear-gradient(135deg, #B31942, #0A3161)',minHeight: 'calc(93vh - 120px)',margin: 0, justifyContent: 'center', alignItems: 'center' }}>
+      </div> */}
+      <div className='login-section' style={{ backgroundImage: 'linear-gradient(135deg,#B31942, #0A3161 )',minHeight: 'calc(93vh - 120px)',margin: 0, justifyContent: 'center', alignItems: 'center' }}>
         <div className="header-container d-flex align-items-center justify-content-center">
           {/* <Image src="/sbwc.JPG" alt="SBWC Logo" width="100" />&nbsp;&nbsp;&nbsp; */}
           {/* <h4 className="text-center" style={{ color: 'white', flex: 2 }}>

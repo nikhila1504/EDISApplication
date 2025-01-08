@@ -10,6 +10,7 @@ import AddNewUser from "./components/AddNewUser.tsx";
 import "primereact/resources/themes/saga-blue/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 function App() {
   return (
