@@ -7,7 +7,6 @@ import { Button } from 'primereact/button';
 import { Container, Row, Col } from 'react-bootstrap';
 import { RiRestartFill } from 'react-icons/ri';
 import { FaSearch, FaUserPlus } from 'react-icons/fa';
-import FooterComponent from './FooterComponent.tsx';
 
 const userStatuses = [
   { label: 'Active', value: 'active' },
@@ -28,20 +27,64 @@ const locations = [
 ];
 
 const AddUser: React.FC = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [userStatus, setUserStatus] = useState(null);
-  const [role, setRole] = useState(null);
-  const [location, setLocation] = useState(null);
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    userStatus: null,
+    location: null,
+    role: null,
+  });
+  const [errors, setErrors] = useState({
+    firstName: '',
+    lastName: '',
+    userStatus: '',
+    location: '',
+    role: '',
+  });
+
+  const validate = (): boolean => {
+    const newErrors = {
+      firstName: formData.firstName ? '' : 'First Name is required.',
+      lastName: formData.lastName ? '' : 'Last Name is required.',
+      userStatus: formData.userStatus ? '' : 'User Status is required.',
+      role: formData.role ? '' : 'Role is required.',
+      location: formData.location ? '' : 'Location is required.',
+    };
+    setErrors(newErrors);
+    return Object.values(newErrors).every((error) => error === '');
+  };
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    console.log({
-      firstName,
-      lastName,
-      userStatus,
-      role,
-      location,
+    if (validate()) {
+      console.log(formData);
+    }
+  };
+
+  const handleInputChange = (field: string, value: any) => {
+    setFormData((prevData) => {
+      const updatedFormData = { ...prevData, [field]: value };
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        [field]: value ? '' : prevErrors[field],
+      }));
+      return updatedFormData;
+    });
+  };
+  const handleReset = () => {
+    setFormData({
+      firstName: '',
+      lastName: '',
+      userStatus: null,
+      location: null,
+      role: null,
+    });
+    setErrors({
+      firstName: '',
+      lastName: '',
+      userStatus: '',
+      location: '',
+      role: '',
     });
   };
 
@@ -53,31 +96,33 @@ const AddUser: React.FC = () => {
             <h5 className="text-center mb-4" style={{ color: '#0A3161' }}>
               Manage Internal Users
             </h5>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} noValidate>
               <Row>
                 <Col xs={12} sm={6} className="mb-3 mt-2">
                   <FloatLabel>
                     <InputText
                       id="firstName"
-                      value={firstName}
-                      onChange={(e) => setFirstName(e.target.value)}
+                      value={formData.firstName}
+                      onChange={(e) => handleInputChange('firstName', e.target.value)}
                       required
-                      className="custom-input"
+                      className={`custom-input ${errors.firstName ? 'p-invalid' : ''}`}
                     />
                     <label htmlFor="firstName">First Name</label>
                   </FloatLabel>
+                  {errors.firstName && <small className="p-error">{errors.firstName}</small>}
                 </Col>
                 <Col xs={12} sm={6} className="mb-3 mt-2">
                   <FloatLabel>
                     <InputText
                       id="lastName"
-                      value={lastName}
-                      onChange={(e) => setLastName(e.target.value)}
-                      required 
-                      className="custom-input"
+                      value={formData.lastName}
+                      onChange={(e) => handleInputChange('lastName', e.target.value)}
+                      required
+                      className={`custom-input ${errors.lastName ? 'p-invalid' : ''}`}
                     />
                     <label htmlFor="lastName">Last Name</label>
                   </FloatLabel>
+                  {errors.lastName && <small className="p-error">{errors.lastName}</small>}
                 </Col>
               </Row>
               <Row>
@@ -85,25 +130,27 @@ const AddUser: React.FC = () => {
                   <FloatLabel>
                     <Dropdown
                       inputId="dd-status"
-                      value={userStatus}
-                      onChange={(e) => setUserStatus(e.value)}
+                      value={formData.userStatus}
+                      onChange={(e) => handleInputChange('userStatus', e.value)}
                       options={userStatuses}
-                      className="custom-input"
+                      className={`custom-input ${errors.userStatus ? 'p-invalid' : ''}`}
                     />
                     <label htmlFor="dd-status">User Status</label>
                   </FloatLabel>
+                  {errors.userStatus && <small className="p-error">{errors.userStatus}</small>}
                 </Col>
                 <Col xs={12} sm={6} className="mb-3 mt-2">
                   <FloatLabel>
                     <Dropdown
                       inputId="dd-role"
-                      value={role}
-                      onChange={(e) => setRole(e.value)}
+                      value={formData.role}
+                      onChange={(e) => handleInputChange('role', e.value)}
                       options={roles}
-                      className="custom-input"
+                      className={`custom-input ${errors.role ? 'p-invalid' : ''}`}
                     />
                     <label htmlFor="dd-role">Role</label>
                   </FloatLabel>
+                  {errors.role && <small className="p-error">{errors.role}</small>}
                 </Col>
               </Row>
               <Row>
@@ -111,13 +158,14 @@ const AddUser: React.FC = () => {
                   <FloatLabel>
                     <Dropdown
                       inputId="dd-location"
-                      value={location}
-                      onChange={(e) => setLocation(e.value)}
+                      value={formData.location}
+                      onChange={(e) => handleInputChange('location', e.value)}
                       options={locations}
-                      className="custom-input"
+                      className={`custom-input ${errors.location ? 'p-invalid' : ''}`}
                     />
                     <label htmlFor="dd-location">Location</label>
                   </FloatLabel>
+                  {errors.location && <small className="p-error">{errors.location}</small>}
                 </Col>
               </Row>
               <Row className="justify-content-center mt-3">
@@ -126,6 +174,7 @@ const AddUser: React.FC = () => {
                     label="Reset"
                     type="reset"
                     className="p-button-lg"
+                    onClick={handleReset}
                     style={{ backgroundColor: '#0A3161' }}
                     icon={<RiRestartFill size={20} />}
                   />
