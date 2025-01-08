@@ -52,13 +52,13 @@ const LoginPage = () => {
                     <b>Welcome to the State Board of Worker’s Compensation Enforcement Division (EDIS)</b>
            </div>
       </div> */}
-      <div className='login-section' style={{ backgroundImage: 'linear-gradient(135deg,#B31942, #0A3161 )',minHeight: 'calc(93vh - 120px)',margin: 0, justifyContent: 'center', alignItems: 'center' }}>
-        <div className="header-container d-flex align-items-center justify-content-center">
+      <div className='login-section'>
+        {/* <div className="header-container d-flex align-items-center justify-content-center"> */}
           {/* <Image src="/sbwc.JPG" alt="SBWC Logo" width="100" />&nbsp;&nbsp;&nbsp; */}
           {/* <h4 className="text-center" style={{ color: 'white', flex: 2 }}>
             <b></b>
           </h4> */}
-        </div>
+        {/* </div> */}
         {/* <div className="login-page">
                 <div className="login-container">
                     <div className="image-container text-center mb-3">
@@ -70,18 +70,16 @@ const LoginPage = () => {
               <a href="https://sbwc.georgia.gov/" target="_blank" rel="noopener noreferrer">
                 <Image src="/georgia_logo.JPG" alt="Georgia Logo" width="80" />
               </a>
-              {<h4 className="mb-3 text-nowrap" style={{ marginLeft: '25%', color: 'red' }}>
-                DEV
-              </h4>}
-              <div style={{ marginLeft: '30%' }} className="d-flex align-items-end"><Image src="/logo_sbwc.jpeg" alt="Image" /></div>
+             
+              {/* <div style={{ marginLeft: '30%' }} className="d-flex align-items-end"><Image src="/logo_sbwc.jpeg" alt="Image" /></div> */}
 
             </div>
-            <h4 className="text-center " style={{ color: '#0A3161' }}>
+            {/* <h4 className="text-center " style={{ color: '#0A3161' }}>
               Enforcement Division Information System (EDIS)
-            </h4>
+            </h4> */}
             {/* <p className="text-center" style={{ color: '#0A3161' }}>Please log in to access your account.</p> */}
             <Card className="login-card">
-              <h5 className="text-center mt-2" style={{ color: '#0A3161' }}>Sign In</h5>
+              <h5 className="text-center" style={{ color: '#0A3161' }}>Sign In</h5>
               {/* Error Message Container with Fixed Height */}
               <div style={{ minHeight: '25px' }}>
                 {error && <p className="text-danger">{error}</p>}

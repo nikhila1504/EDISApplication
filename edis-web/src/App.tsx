@@ -23,7 +23,7 @@ function App() {
               <Route path="/" element={<LoginComponent />} />
               <Route path="/addUser" element={<AddUser />} />
               <Route path="/addNewUser" element={<AddNewUser />} />
-              <Route path="/userregistration" element={<RegistrationForm />} />
+              <Route path="/userRegistration" element={<RegistrationForm />} />
             </Routes>
            
           </div>

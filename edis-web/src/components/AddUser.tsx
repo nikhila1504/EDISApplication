@@ -7,8 +7,7 @@ import { Button } from 'primereact/button';
 import { Container, Row, Col } from 'react-bootstrap';
 import { RiRestartFill } from 'react-icons/ri';
 import { FaSearch, FaUserPlus } from 'react-icons/fa';
-import FooterComponent from "./FooterComponent.tsx";
-
+import FooterComponent from './FooterComponent.tsx';
 
 const userStatuses = [
   { label: 'Active', value: 'active' },
@@ -47,114 +46,104 @@ const AddUser: React.FC = () => {
   };
 
   return (
-    <Container style={{ marginTop: '5%' }}>
+    <Container fluid style={{ marginTop: '2%' }}>
       <Row>
-        <Col xs={12} md={8} className="mx-auto">
-          <h4 className="d-flex justify-content-center" style={{ color: 'Black' }}>
-            Manage Internal Users
-          </h4>
-          <nav className="navbar navbar-light" style={{ backgroundColor: "#B31942" }}>
-            <h4 className="ms-4" style={{ color: 'white' }}>Search</h4>
-          </nav>
-          <Card className="p-fluid" style={{ maxWidth: '100%', padding: '2rem' }}>
+        <Col xs={12} lg={8} className="mx-auto">
+          <Card className="p-fluid" style={{ padding: '1rem' }}>
+            <h5 className="text-center mb-4" style={{ color: '#0A3161' }}>
+              Manage Internal Users
+            </h5>
             <form onSubmit={handleSubmit}>
-              <Row className="d-flex">
-                <Col xs={4} sm={4} md={4} className="d-flex justify-content-center mb-3">
-                  <FloatLabel className="w-100">
-                    <label htmlFor="firstName">First Name</label>
+              <Row>
+                <Col xs={12} sm={6} className="mb-3 mt-2">
+                  <FloatLabel>
                     <InputText
                       id="firstName"
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
                       required
-                      className="mobile-input"
-                      style={{ width: '100%' }}
+                      className="custom-input"
                     />
+                    <label htmlFor="firstName">First Name</label>
                   </FloatLabel>
                 </Col>
-
-                <Col xs={4} sm={4} md={4} className="d-flex justify-content-center mb-3">
-                  <FloatLabel className="w-100">
-                    <label htmlFor="lastName">Last Name</label>
+                <Col xs={12} sm={6} className="mb-3 mt-2">
+                  <FloatLabel>
                     <InputText
                       id="lastName"
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
-                      required
-                      className="w-100"
-                      style={{ width: '100%' }}
+                      required 
+                      className="custom-input"
                     />
-                  </FloatLabel>
-                </Col>
-
-                <Col xs={4} sm={4} md={4} className="d-flex justify-content-center mb-3">
-                  <FloatLabel className="w-100">
-                    <Dropdown
-                      inputId="dd-city"
-                      value={userStatus}
-                      id="userStatus"
-                      onChange={(e) => setUserStatus(e.value)}
-                      options={userStatuses}
-                      className="w-100"
-                      style={{ width: '100%' }}
-                    />
-                    <label htmlFor="dd-city">User Status</label>
+                    <label htmlFor="lastName">Last Name</label>
                   </FloatLabel>
                 </Col>
               </Row>
-
-              <Row className="mt-4 d-flex">
-                <Col xs={5} sm={4} md={4} className="d-flex justify-content-center mb-3">
-                  <FloatLabel className="w-100">
+              <Row>
+                <Col xs={12} sm={6} className="mb-3 mt-2">
+                  <FloatLabel>
+                    <Dropdown
+                      inputId="dd-status"
+                      value={userStatus}
+                      onChange={(e) => setUserStatus(e.value)}
+                      options={userStatuses}
+                      className="custom-input"
+                    />
+                    <label htmlFor="dd-status">User Status</label>
+                  </FloatLabel>
+                </Col>
+                <Col xs={12} sm={6} className="mb-3 mt-2">
+                  <FloatLabel>
                     <Dropdown
                       inputId="dd-role"
                       value={role}
-                      id="role"
                       onChange={(e) => setRole(e.value)}
                       options={roles}
-                      className="w-100"
-                      style={{ width: '100%' }}
+                      className="custom-input"
                     />
                     <label htmlFor="dd-role">Role</label>
                   </FloatLabel>
                 </Col>
-
-                <Col xs={5} sm={4} md={4} className="d-flex justify-content-center mb-3">
-                  <FloatLabel className="w-100">
+              </Row>
+              <Row>
+                <Col xs={12} className="mb-3 mt-2">
+                  <FloatLabel>
                     <Dropdown
                       inputId="dd-location"
                       value={location}
-                      id="location"
                       onChange={(e) => setLocation(e.value)}
                       options={locations}
-                      className="w-100"
-                      style={{ width: '100%' }}
+                      className="custom-input"
                     />
                     <label htmlFor="dd-location">Location</label>
                   </FloatLabel>
                 </Col>
               </Row>
-
-              <Row className="d-flex justify-content-center" style={{ marginTop: '0px' }}>
-                <Col xs={12} sm={8} md={8} className="d-flex justify-content-center">
+              <Row className="justify-content-center mt-3">
+                <Col xs="auto" className="mb-2">
                   <Button
                     label="Reset"
                     type="reset"
-                    className="p-button-lg mx-2"
+                    className="p-button-lg"
                     style={{ backgroundColor: '#0A3161' }}
-                    icon={<RiRestartFill size={30} />}
+                    icon={<RiRestartFill size={20} />}
                   />
+                </Col>
+                <Col xs="auto" className="mb-2">
                   <Button
                     label="Search"
                     type="submit"
-                    className="p-button-lg mx-2"
+                    className="p-button-lg"
                     style={{ backgroundColor: '#0A3161' }}
                     icon={<FaSearch />}
                   />
+                </Col>
+                <Col xs="auto" className="mb-2">
                   <Button
                     label="Add User"
                     type="submit"
-                    className="p-button-lg mx-2"
+                    className="p-button-lg"
                     style={{ backgroundColor: '#0A3161' }}
                     icon={<FaUserPlus />}
                   />
@@ -165,7 +154,6 @@ const AddUser: React.FC = () => {
         </Col>
       </Row>
     </Container>
-
   );
 };
 

@@ -11,17 +11,18 @@
   background: linear-gradient(135deg, #B31942,#0A3161);
 } */
 body {
-  /* background: linear-gradient(135deg, #B31942,#0A3161); */
+  background: linear-gradient(135deg, #B31942,#0A3161);
   justify-content: center;
   align-items: center;
-  /* height: 100vh; */
+  height: 100vh;
   margin: 0;
   font-family: Arial, sans-serif;
   /* overflow: hidden;  */
  }
-.login-section .body{
+/* .login-section .body{
   background: linear-gradient(135deg, #B31942,#0A3161);
-}
+} */
+
  .login-marquee-container {
   width: 100%;
   /* background:linear-gradient(135deg, #B31942,#0A3161);  */
@@ -36,8 +37,7 @@ box-shadow:none !important;
 .marquee-text {
   display: inline-block;
   white-space: nowrap;
-  padding-left: 100%; 
-  animation: scroll-left 50s linear infinite; 
+  animation: scroll-left 15s linear infinite; 
   color: white;
   font-size: 18px;
   font-weight: bold;
@@ -71,9 +71,9 @@ box-shadow:none !important;
   max-width: 600px;
 }
 
-/* .login-card {
+.login-card {
   margin-top: -2.5rem;
-} */
+}
 
 .image-container img {
   width: 100px;
@@ -146,12 +146,14 @@ box-shadow:none !important;
 }
 
 .form-container {
-    max-width: 600px;
-    width: 100%;
+  justify-content: center !important;
+    display: flex;
 }
 
 .form-card {
     padding: 20px;
+    width: 60%;
+    justify-content: center !important;
 }
 .form-page {
   display: flex;
@@ -244,4 +246,20 @@ box-shadow:none !important;
   .container{
     max-width: 100% !important;
   }
+}
+
+.custom-input {
+  border: 1px solid #0A3161; /* Custom border color */
+  border-radius: 4px;        /* Rounded corners */
+  box-shadow: none !important; /* Ensure no shadow on default */
+}
+
+.custom-input:focus {
+  border-color: #0A3161; /* Custom border color on focus */
+  box-shadow: none !important; /* Remove focus box shadow */
+  outline: none; /* Optional: removes default outline */
+}
+
+.p-invalid{
+  border: 1px solid red;
 }

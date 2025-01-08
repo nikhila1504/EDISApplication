@@ -84,29 +84,29 @@ const FormPage: React.FC = () => {
 
     return (
         <section>
-            <HeaderComponent />
+            
             <div className="form-page">
             
                 <div className="form-container">
-                <div style={{ marginLeft: '85%' }}>
+                {/* <div style={{ marginLeft: '85%' }}>
                     <Button
                     label="Logout"
                     icon="pi pi-sign-out"
                     className="p-button-danger logout-button"
                     onClick={handleLogout}
-                /></div>
+                /></div> */}
                     <Card className="form-card">
                         
                         <h5 className="text-center" style={{ color: '#0A3161', marginTop: '0' }}>Add a New User</h5>
                         <form onSubmit={handleSubmit}>
-                            <div className="p-fluid">
+                            <div className="p-fluid mt-4">
                                 <FloatLabel>
                                     <InputText
                                         id="firstName"
                                         name="firstName"
                                         value={formData.firstName}
                                         onChange={handleInputChange}
-                                        className={errors.firstName ? 'p-invalid' : ''}
+                                        className={`custom-input ${errors.firstName ? 'p-invalid' : ''}`}
                                     />
                                     <label htmlFor="firstName">First Name</label>
                                 </FloatLabel>
@@ -118,7 +118,7 @@ const FormPage: React.FC = () => {
                                         name="lastName"
                                         value={formData.lastName}
                                         onChange={handleInputChange}
-                                        className={errors.lastName ? 'p-invalid' : ''}
+                                        className={`custom-input ${errors.lastName ? 'p-invalid' : ''}`}
                                     />
                                     <label htmlFor="lastName">Last Name</label>
                                 </FloatLabel>
@@ -130,7 +130,7 @@ const FormPage: React.FC = () => {
                                         name="email"
                                         value={formData.email}
                                         onChange={handleInputChange}
-                                        className={errors.email ? 'p-invalid' : ''}
+                                        className={`custom-input ${errors.email ? 'p-invalid' : ''}`}
                                     />
                                     <label htmlFor="email">Email</label>
                                 </FloatLabel>
@@ -143,7 +143,7 @@ const FormPage: React.FC = () => {
                                         options={roles}
                                         onChange={handleDropdownChange}
                                         placeholder="Select a Role"
-                                        className={errors.role ? 'p-invalid' : ''}
+                                        className={`custom-input ${errors.role ? 'p-invalid' : ''}`}
                                     />
                                     <label htmlFor="role">Role</label>
                                 </FloatLabel>

@@ -23,12 +23,16 @@ const HeaderComponent = () => {
 
     return (
         <div >
-            <div style={{ backgroundImage: 'linear-gradient(135deg,#B31942, #0A3161)', border: 'none' }}>
+            <div style={{ border: 'none' }}>
                 {/* Header Section with Flexbox */}
                 <div className="d-flex justify-content-between align-items-center" style={{ padding: '10px' }}>
                     <img src={logo} alt="Logo" className="logo img-fluid" width='250' />
+                     {<h4 className="mb-3 text-nowrap" style={{ marginLeft: '5%', color: 'red' }}>
+                                    DEV
+                                  </h4>}
                     <img src={edislogo} alt="ICMS Logo" className="edis-logo img-fluid" width='350' />
                 </div>
+                
                 {isLoginPage && (
                     <div className="login-marquee-container">
                         <div className="marquee-text">

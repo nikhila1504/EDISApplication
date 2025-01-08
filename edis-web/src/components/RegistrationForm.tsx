@@ -125,18 +125,20 @@ const RegistrationForm: React.FC = () => {
 
   return (
     <Container style={{
-        marginTop: '5%',
-        maxWidth: '100%',
+        marginTop: '1%',
+        maxWidth: '80%',
         overflowX: 'auto', // Allow horizontal scrolling if needed
         overflowY: 'auto', // Ensure vertical scrolling if content overflows
       }}>
     <Row>
         <Col xs={12} md={8} className="mx-auto">
-        <nav className="navbar navbar-light" style={{ backgroundColor: "#B31942" }}>
+        {/* <nav className="navbar navbar-light" style={{ backgroundColor: "#B31942" }}>
           <h4 className="ms-4" style={{ color: 'white' }}>User Registration</h4>
-        </nav>
+        </nav> */}
            <Card className="p-fluid d-flex justify-content-center" style={{ maxWidth: '100%'}}>
-           
+           <h5 className="text-center mb-4" style={{ color: '#0A3161' }}>
+           User Registration
+            </h5>
                    <form onSubmit={handleSubmit}>
                        <Row>
                        {/* First Name and Last Name */}
