@@ -142,7 +142,7 @@ const RegistrationForm: React.FC = () => {
                    <form onSubmit={handleSubmit}>
                        <Row>
                        {/* First Name and Last Name */}
-                       <Col sm={12} md={6} className='mt-3 mt-sm-3 mt-md-3'>
+                       <Col sm={12} md={6} className='mt-4 mt-sm-4 mt-md-4'>
                            <div className="p-field">
                                <FloatLabel>
                                    <label htmlFor="firstName">First Name</label>
@@ -150,15 +150,14 @@ const RegistrationForm: React.FC = () => {
                                        id="firstName"
                                        value={formData.firstName}
                                        onChange={(e) => handleInputChange(e, 'firstName')}
-                                       placeholder="Enter your first name"
-                                       className="w-100"
+                                       className={`custom-input ${errors.firstName ? 'p-invalid' : ''}`}
                                    />
                            </FloatLabel>
                            {errors.firstName && <small className="p-error">{errors.firstName}</small>}
                            </div>
                        </Col>
                {/* Mailing Address */}
-               <Col sm={12}  md={6} className='mt-3 mt-sm-3 mt-md-3'>
+               <Col sm={12}  md={6} className='mt-4 mt-sm-4 mt-md-4'>
                            <div className="p-field">
                                <FloatLabel>  
                                    <label htmlFor="mailingAddress1">Mailing Address 1</label>
@@ -166,8 +165,7 @@ const RegistrationForm: React.FC = () => {
                                        id="mailingAddress1"
                                        value={formData.mailingAddress1}
                                        onChange={(e) => handleInputChange(e, 'mailingAddress1')}
-                                       placeholder="Enter your mailing address"
-                                       className="w-100"
+                                       className={`custom-input ${errors.mailingAddress1 ? 'p-invalid' : ''}`}
                                    />
                                </FloatLabel>
                                {errors.mailingAddress1 && <small className="p-error">{errors.mailingAddress1}</small>}
@@ -178,7 +176,7 @@ const RegistrationForm: React.FC = () => {
 
                        <Row >
 
-                       <Col sm={12} md={6} className='mt-3 mt-sm-3 mt-md-3'>
+                       <Col sm={12} md={6} className='mt-4 mt-sm-4 mt-md-4'>
                            <div className="p-field">
                            <FloatLabel>
                                <label htmlFor="lastName">Last Name</label>
@@ -186,15 +184,14 @@ const RegistrationForm: React.FC = () => {
                                    id="lastName"
                                    value={formData.lastName}
                                    onChange={(e) => handleInputChange(e, 'lastName')}
-                                   placeholder="Enter your last name"
-                                   className="w-100"
+                                   className={`custom-input ${errors.lastName ? 'p-invalid' : ''}`}
                                />
                            </FloatLabel>
                            {errors.lastName && <small className="p-error">{errors.lastName}</small>}
                            </div>
                        </Col>
                        {/* Mailing Address */}
-                       <Col sm={12}  md={6} className='mt-3 mt-sm-3 mt-md-3'>
+                       <Col sm={12}  md={6} className='mt-4 mt-sm-4 mt-md-4'>
                            <div className="p-field">
                            <FloatLabel>
                            <label htmlFor="mailingAddress2">Mailing Address 2</label>
@@ -202,8 +199,7 @@ const RegistrationForm: React.FC = () => {
                                id="mailingAddress2"
                                value={formData.mailingAddress2}
                                onChange={(e) => handleInputChange(e, 'mailingAddress2')}
-                               placeholder="Enter your mailing address"
-                               className="w-100"
+                               className="custom-input"
                            />
                            </FloatLabel>
                            </div>
@@ -211,7 +207,7 @@ const RegistrationForm: React.FC = () => {
                        </Row>
                        <Row>
                        {/* Suffix */}
-                       <Col sm={12} md={6} className='mt-3 mt-sm-3 mt-md-3'>
+                       <Col sm={12} md={6} className='mt-4 mt-sm-4 mt-md-4'>
                            <div className="p-field">
                            <FloatLabel>
                            <label htmlFor="suffix">Suffix</label>
@@ -219,14 +215,13 @@ const RegistrationForm: React.FC = () => {
                                id="suffix"
                                value={formData.suffix}
                                onChange={(e) => handleInputChange(e, 'suffix')}
-                               placeholder="Enter suffix"
-                               className="w-100"
+                               className="custom-input"
                            />
                            </FloatLabel>
                            </div>
                        </Col>
                        {/* City and State */}
-                       <Col sm={12} md={6} className='mt-3 mt-sm-3 mt-md-3'>
+                       <Col sm={12} md={6} className='mt-4 mt-sm-4 mt-md-4'>
                            <div className="p-field">
                            <FloatLabel>
                            <label htmlFor="city">City</label>
@@ -234,8 +229,7 @@ const RegistrationForm: React.FC = () => {
                                id="city"
                                value={formData.city}
                                onChange={(e) => handleInputChange(e, 'city')}
-                               placeholder="Enter your city"
-                               className="w-100"
+                               className={`custom-input ${errors.city ? 'p-invalid' : ''}`}
                            />
                            </FloatLabel>
                            {errors.city && <small className="p-error">{errors.city}</small>}
@@ -245,7 +239,7 @@ const RegistrationForm: React.FC = () => {
 
                        <Row>
 
-                       <Col sm={12} md={6} className='mt-3 mt-sm-3 mt-md-3'>
+                       <Col sm={12} md={6} className='mt-4 mt-sm-4 mt-md-4'>
                            <div className="p-field">
                            <FloatLabel>
                            <label htmlFor="securityRole">Security Role</label>
@@ -253,14 +247,13 @@ const RegistrationForm: React.FC = () => {
                                id="securityRole"
                                value={formData.securityRole}
                                onChange={(e) => handleInputChange(e, 'securityRole')}
-                               placeholder="Enter your securityRole"
-                               className="w-100"
+                               className={`custom-input ${errors.securityRole ? 'p-invalid' : ''}`}
                            />
                            </FloatLabel>
                            {errors.securityRole && <small className="p-error">{errors.securityRole}</small>}
                            </div>
                        </Col>
-                       <Col sm={12} md={6} className='mt-3 mt-sm-3 mt-md-3'>
+                       <Col sm={12} md={6} className='mt-4 mt-sm-4 mt-md-4'>
                            <div className="p-field">
                            <FloatLabel>
                            <label htmlFor="state">State</label>
@@ -268,8 +261,7 @@ const RegistrationForm: React.FC = () => {
                                id="state"
                                value={formData.state}
                                onChange={(e) => handleInputChange(e, 'state')}
-                               placeholder="Enter your state"
-                               className="w-100"
+                               className={`custom-input ${errors.state ? 'p-invalid' : ''}`}
                            />
                            </FloatLabel>
                            {errors.state && <small className="p-error">{errors.state}</small>}
@@ -277,7 +269,7 @@ const RegistrationForm: React.FC = () => {
                        </Col>
                        </Row>
                        <Row>
-                       <Col sm={12} md={6} className='mt-3 mt-sm-3 mt-md-3'>
+                       <Col sm={12} md={6} className='mt-4 mt-sm-4 mt-md-4'>
                            <div className="p-field">
                            <FloatLabel>
                            <label htmlFor="badgeNumber">Badge Number</label>
@@ -285,13 +277,12 @@ const RegistrationForm: React.FC = () => {
                                id="badgeNumber"
                                value={formData.badgeNumber}
                                onChange={(e) => handleInputChange(e, 'badgeNumber')}
-                               placeholder="Enter your badgeNumber"
-                               className="w-100"
+                               className="custom-input"
                            />
                        </FloatLabel>
                            </div>
                        </Col>
-                       <Col sm={12} md={4} className='mt-3 mt-sm-3 mt-md-3'>
+                       <Col sm={12} md={4} className='mt-4 mt-sm-4 mt-md-4'>
                            <div className="p-field">
                            <FloatLabel>
                            <label htmlFor="zip">ZIP Code</label>
@@ -299,14 +290,13 @@ const RegistrationForm: React.FC = () => {
                                id="zip"
                                value={formData.zip}
                                onChange={(e) => handleInputChange(e, 'zip')}
-                               placeholder="ZIP"
-                               className="w-100"
+                               className={`custom-input ${errors.zip ? 'p-invalid' : ''}`}
                            />
                            </FloatLabel>
                            {errors.zip && <small className="p-error">{errors.zip}</small>}
                            </div>
                        </Col>
-                       <Col sm={12} md={2} className='mt-3 mt-sm-3 mt-md-3'>
+                       <Col sm={12} md={2} className='mt-4 mt-sm-4 mt-md-4'>
                            <div className="p-field">
                            <FloatLabel>
                            <label htmlFor="zipExt">ZIP Ext</label>
@@ -314,8 +304,7 @@ const RegistrationForm: React.FC = () => {
                                id="zipExt"
                                value={formData.zipExt}
                                onChange={(e) => handleInputChange(e, 'zipExt')}
-                               placeholder="Extension"
-                               className="w-100"
+                               className="custom-input"
                            />
                            </FloatLabel>
                            </div>
@@ -325,7 +314,7 @@ const RegistrationForm: React.FC = () => {
 
                        <Row>
 
-                       <Col sm={12} md={6} className='mt-3 mt-sm-3 mt-md-3'>
+                       <Col sm={12} md={6} className='mt-4 mt-sm-4 mt-md-4'>
                            <div className="p-field">
                        
                            <FloatLabel className="w-full md:w-14rem">
@@ -335,13 +324,13 @@ const RegistrationForm: React.FC = () => {
                                id="officeLocation" 
                                onChange={(e) => handleDropdownChange(e, 'officeLocation')} 
                                options={roles}  
-                               className="w-full" />
+                               className={`custom-input ${errors.zip ? 'p-invalid' : ''}`} />
                                <label htmlFor="dd-city">Office Location</label>
                            </FloatLabel>
                            {errors.officeLocation && <small className="p-error">{errors.officeLocation}</small>}
                            </div>
                        </Col>
-                       <Col sm={12} md={4} className='mt-3 mt-sm-3 mt-md-3'>
+                       <Col sm={12} md={4} className='mt-4 mt-sm-4 mt-md-4'>
                            <div className="p-field">
                            <FloatLabel>
                            <label htmlFor="phone">Phone</label>
@@ -350,12 +339,13 @@ const RegistrationForm: React.FC = () => {
                                value={formData.phone}
                                onChange={(e) => handleInputChange(e, 'phone')}
                                placeholder="Phone number"
-                               className="w-100"
+                               className={`custom-input ${errors.phone ? 'p-invalid' : ''}`}
                            />
                            </FloatLabel>
+                           {errors.phone && <small className="p-error">{errors.phone}</small>}
                            </div>
                        </Col>
-                       <Col sm={12} md={2} className='mt-3 mt-sm-3 mt-md-3'>
+                       <Col sm={12} md={2} className='mt-4 mt-sm-4 mt-md-4'>
                            <div className="p-field">
                            <FloatLabel>
                            <label htmlFor="phoneExt">Phone Ext</label>
@@ -364,7 +354,7 @@ const RegistrationForm: React.FC = () => {
                                value={formData.phoneExt}
                                onChange={(e) => handleInputChange(e, 'phoneExt')}
                                placeholder="Phone number Ext"
-                               className="w-100"
+                               className="custom-input"
                            />
                            </FloatLabel>
                            </div>
@@ -377,7 +367,7 @@ const RegistrationForm: React.FC = () => {
                        <Row>
                        
 
-                       <Col sm={12} md={6} className='mt-3 mt-sm-3 mt-md-3'>
+                       <Col sm={12} md={6} className='mt-4 mt-sm-4 mt-md-4'>
                            <div className="p-field">
                            <FloatLabel>
                            
@@ -386,13 +376,13 @@ const RegistrationForm: React.FC = () => {
                            onChange={(e) => handleInputChange(e, 'password')} 
                            header={header} 
                            footer={footer} 
-                           className="w-100"/>
+                           className={`custom-input ${errors.password ? 'p-invalid' : ''}`}/>
                            <label htmlFor="password">Password</label>
                            </FloatLabel>
                            {errors.password && <small className="p-error">{errors.password}</small>}
                            </div>
                        </Col>
-                       <Col sm={12} md={6} className='mt-3 mt-sm-3 mt-md-3'>
+                       <Col sm={12} md={6} className='mt-4 mt-sm-4 mt-md-4'>
                            <div className="p-field">
                            <FloatLabel>
                            
@@ -402,7 +392,7 @@ const RegistrationForm: React.FC = () => {
                                onChange={(e) => handleInputChange(e, 'confirmPassword')}
                                header={header} 
                                footer={footer} 
-                               className="w-100"
+                               className={`custom-input ${errors.confirmPassword ? 'p-invalid' : ''}`}
                            />
 
                            <label htmlFor="confirmPassword">Confirm Password</label>
@@ -414,7 +404,7 @@ const RegistrationForm: React.FC = () => {
                        </Row>
             
                        {/* Submit Button */}
-                       <Button type="submit" label="Register" className="p-button p-button-primary w-100 mt-3" style={{ backgroundColor: '#0A3161'}}/>
+                       <Button type="submit" label="Register" className="p-button p-button-primary w-100 mt-4" style={{ backgroundColor: '#0A3161'}}/>
                    </form>
                </Card>
                </Col>
