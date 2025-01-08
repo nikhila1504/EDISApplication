@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { Dropdown } from 'primereact/dropdown';
-import { Row, Col } from 'react-bootstrap';
+import { Container,Row, Col } from 'react-bootstrap';
 import { Password } from 'primereact/password';
 import { Divider } from 'primereact/divider';
 import { FloatLabel } from 'primereact/floatlabel';
@@ -124,21 +124,14 @@ const RegistrationForm: React.FC = () => {
 };
 
   return (
-    <section>
-
-    <div className="form-page">
-               
-       <div className="form-container">
-           <div style={{ marginLeft: '85%' }}>
-               <Button
-               label="Logout"
-               icon="pi pi-sign-out"
-               className="p-button-danger logout-button"
-               onClick={handleLogout}
-           /></div>
-           <Card className="form-card">
-               
-               <h5 className="text-center" style={{ color: '#0A3161', marginTop: '0' }}>User Registration</h5>
+    <Container style={{ marginTop: '5%' }}>
+    <Row>
+        <Col xs={12} md={8} className="mx-auto">
+        <nav className="navbar navbar-light" style={{ backgroundColor: "#B31942" }}>
+          <h4 className="ms-4" style={{ color: 'white' }}>User Registration</h4>
+        </nav>
+           <Card className="p-fluid d-flex justify-content-center" style={{ maxWidth: '100%'}}>
+           
                    <form onSubmit={handleSubmit}>
                        <Row className="mb-3 mt-4">
                        {/* First Name and Last Name */}
@@ -291,7 +284,7 @@ const RegistrationForm: React.FC = () => {
                        </FloatLabel>
                            </div>
                        </Col>
-                       <Col sm={12} md={6}>
+                       <Col sm={12} md={4}>
                            <div className="p-field">
                            <FloatLabel>
                            <label htmlFor="zip">ZIP Code</label>
@@ -304,6 +297,20 @@ const RegistrationForm: React.FC = () => {
                            />
                            </FloatLabel>
                            {errors.zip && <small className="p-error">{errors.zip}</small>}
+                           </div>
+                       </Col>
+                       <Col sm={12} md={2}>
+                           <div className="p-field">
+                           <FloatLabel>
+                           <label htmlFor="zipExt">ZIP Ext</label>
+                           <InputText
+                               id="zipExt"
+                               value={formData.zipExt}
+                               onChange={(e) => handleInputChange(e, 'zipExt')}
+                               placeholder="Extension"
+                               className="w-100"
+                           />
+                           </FloatLabel>
                            </div>
                        </Col>
 
@@ -327,21 +334,35 @@ const RegistrationForm: React.FC = () => {
                            {errors.officeLocation && <small className="p-error">{errors.officeLocation}</small>}
                            </div>
                        </Col>
-                       
-                       <Col sm={12} md={2}>
+                       <Col sm={12} md={4}>
                            <div className="p-field">
                            <FloatLabel>
-                           <label htmlFor="zipExt">ZIP Ext</label>
+                           <label htmlFor="phone">Phone</label>
                            <InputText
-                               id="zipExt"
-                               value={formData.zipExt}
-                               onChange={(e) => handleInputChange(e, 'zipExt')}
-                               placeholder="Extension"
+                               id="phone"
+                               value={formData.phone}
+                               onChange={(e) => handleInputChange(e, 'phone')}
+                               placeholder="Phone number"
                                className="w-100"
                            />
                            </FloatLabel>
                            </div>
                        </Col>
+                       <Col sm={12} md={2}>
+                           <div className="p-field">
+                           <FloatLabel>
+                           <label htmlFor="phoneExt">Phone Ext</label>
+                           <InputText
+                               id="phoneExt"
+                               value={formData.phoneExt}
+                               onChange={(e) => handleInputChange(e, 'phoneExt')}
+                               placeholder="Phone number Ext"
+                               className="w-100"
+                           />
+                           </FloatLabel>
+                           </div>
+                       </Col>
+                      
                    
                        </Row>
                    
@@ -367,24 +388,6 @@ const RegistrationForm: React.FC = () => {
                        <Col sm={12} md={6}>
                            <div className="p-field">
                            <FloatLabel>
-                           <label htmlFor="phone">Phone</label>
-                           <InputText
-                               id="phone"
-                               value={formData.phone}
-                               onChange={(e) => handleInputChange(e, 'phone')}
-                               placeholder="Phone number"
-                               className="w-100"
-                           />
-                           </FloatLabel>
-                           </div>
-                       </Col>
-                       </Row>
-                   
-
-                       <Row className="mb-3 mt-4">
-                       <Col sm={12} md={6}>
-                           <div className="p-field">
-                           <FloatLabel>
                            
                            <Password
                                inputId="confirmPassword"
@@ -400,29 +403,19 @@ const RegistrationForm: React.FC = () => {
                            {errors.confirmPassword && <small className="p-error">{errors.confirmPassword}</small>}
                            </div>
                        </Col>
-                       <Col sm={12} md={2}>
-                           <div className="p-field">
-                           <FloatLabel>
-                           <label htmlFor="phoneExt">Phone Ext</label>
-                           <InputText
-                               id="phoneExt"
-                               value={formData.phoneExt}
-                               onChange={(e) => handleInputChange(e, 'phoneExt')}
-                               placeholder="Phone number Ext"
-                               className="w-100"
-                           />
-                           </FloatLabel>
-                           </div>
-                       </Col>
+                      
                        </Row>
-
+            
                        {/* Submit Button */}
                        <Button type="submit" label="Register" className="p-button p-button-primary w-100" style={{ backgroundColor: '#0A3161'}}/>
                    </form>
                </Card>
-           </div>
-       </div>
-   </section>
+               </Col>
+
+            </Row>
+
+            </Container>
+       
   );
 };
 
