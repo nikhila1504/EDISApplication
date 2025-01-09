@@ -135,7 +135,7 @@ const RegistrationForm: React.FC = () => {
         {/* <nav className="navbar navbar-light" style={{ backgroundColor: "#B31942" }}>
           <h4 className="ms-4" style={{ color: 'white' }}>User Registration</h4>
         </nav> */}
-           <Card className="p-fluid d-flex justify-content-center" style={{ maxWidth: '100%'}}>
+           <Card className="p-fluid d-flex justify-content-center card-section">
            <h5 className="text-center mb-4" style={{ color: '#0A3161' }}>
            User Registration
             </h5>
