@@ -7,11 +7,12 @@
   align-items: center;
   height: 100vh;
 } */
-/* .login-section{
-  background: linear-gradient(135deg, #B31942,#0A3161);
-} */
+.login-section{
+  /* background: linear-gradient(135deg, #B31942,#0A3161); */
+  height: 76vh;
+}
 body {
-  background: linear-gradient(135deg, #B31942,#0A3161);
+  /* background: linear-gradient(135deg, #B31942,#0A3161); */
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -23,6 +24,25 @@ body {
 /* .login-section .body{
   background: linear-gradient(135deg, #B31942,#0A3161);
 } */
+.card-section{
+  /* padding: 1rem; */
+  border:1px solid navy;
+}
+
+/* styles.css */
+.login-background {
+  background:linear-gradient(135deg, #B31942,#0A3161); /* Light background for login page */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-repeat: no-repeat; background-size: cover; background-attachment: fixed;
+}
+
+.form-background {
+  background-color: #e6f7ff; /* Custom background for form pages */
+}
 
  .login-marquee-container {
   width: 100%;
@@ -149,28 +169,14 @@ box-shadow:none !important;
 .form-container {
   justify-content: center !important;
     display: flex;
+    max-width: 100%;
+    width: 100%;
 }
 
 .form-card {
     padding: 20px;
     width: 60%;
     justify-content: center !important;
-}
-.form-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* min-height: calc(100vh - 800px); */
-  padding: 20px;
-}
-
-.form-container {
-  max-width: 100%;
-  width: 100%;
-}
-
-.form-card {
-  padding: 20px;
 }
 
 .p-float-label input, 

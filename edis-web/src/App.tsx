@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import LoginComponent from "./components/loginComponent.tsx";
+import LoginComponent from "./components/LoginPageComponent.tsx";
 import AddUser from "./components/AddUser.tsx";
 import HeaderComponent from "./components/HeaderComponent.tsx"
 import FooterComponent from "./components/FooterComponent.tsx";

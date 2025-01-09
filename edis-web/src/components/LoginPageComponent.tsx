@@ -10,6 +10,9 @@ import { Link } from 'react-router-dom';
 import 'primereact/resources/themes/lara-light-indigo/theme.css'; // PrimeReact Theme
 import 'primereact/resources/primereact.min.css';                // PrimeReact Core
 import { useNavigate } from 'react-router-dom';
+import FooterComponent from './FooterComponent.tsx';
+import logo from '../images/sbwc_logo.gif';
+import edislogo from '../images/edis_logo.png';
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({ username: '', password: '' });
@@ -47,7 +50,14 @@ const LoginPage = () => {
   };
 
   return (
-    <div>
+    <div className='login-background'>
+         <div className="d-flex justify-content-between align-items-center" style={{ padding: '10px' }}>
+                             <img src={logo} alt="Logo" className="logo img-fluid" width='250' />
+                             {<h4 className="mb-3 text-nowrap" style={{ marginLeft: '5%', color: 'red' }}>
+                                 DEV
+                             </h4>}
+                             <img src={edislogo} alt="ICMS Logo" className="edis-logo img-fluid" width='350' />
+                         </div>
      {/* <div className="login-marquee-container">
            <div className="marquee-text">
                     <b>Welcome to the State Board of Worker’s Compensation Enforcement Division (EDIS)</b>
@@ -135,6 +145,10 @@ const LoginPage = () => {
           </div>
         </div>
       </div>
+      <div>
+        <p className="text-white text-center" style={{fontSize:'10px'}}>Release Notes | Privacy | Important Notices | Contact Us</p>
+        
+        </div>
     </div>
   );
 };

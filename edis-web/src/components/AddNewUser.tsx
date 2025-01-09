@@ -95,7 +95,7 @@ const FormPage: React.FC = () => {
                     className="p-button-danger logout-button"
                     onClick={handleLogout}
                 /></div> */}
-                    <Card className="form-card">
+                    <Card className="form-card card-section">
                         
                         <h5 className="text-center" style={{ color: '#0A3161', marginTop: '0' }}>Add a New User</h5>
                         <form onSubmit={handleSubmit}>
