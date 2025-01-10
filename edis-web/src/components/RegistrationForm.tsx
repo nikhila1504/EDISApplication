@@ -34,6 +34,13 @@ const RegistrationForm: React.FC = () => {
     confirmPassword: '',
     badgeNumber:''
   });
+  const passwordRegex = {
+    minLength: /^.{10,}$/, // Minimum of 10 characters
+    letters: /[a-zA-Z]/, // At least 5 letters
+    upperCase: /[A-Z].*[A-Z]/, // At least 2 uppercase letters
+    numbers: /\d.*\d/, // At least 2 numbers
+    specialChars: /[!%$&^*()?<>]/, // At least 2 special characters
+};
 
   const [errors, setErrors] = useState({
     firstName: '',
@@ -62,10 +69,12 @@ const RegistrationForm: React.FC = () => {
           <Divider />
           <p className="mt-2">Suggestions</p>
           <ul className="pl-2 ml-2 mt-0 line-height-3">
-              <li>At least one lowercase</li>
-              <li>At least one uppercase</li>
-              <li>At least one numeric</li>
-              <li>Minimum 8 characters</li>
+              <li>There must be a minimum of 10 characters.</li>
+              <li>Must have at least 5 letters.</li>
+              <li>Must have at least two uppercase letters.</li>
+              <li>Must have at least two numbers.</li>
+              <li>Must have at least two special characters. (!%$&^*()?&lt;&gt;)</li>
+              <li>The password entered by the user and the confirmed password must be matched.</li>
           </ul>
       </>
   );
@@ -106,8 +115,24 @@ const RegistrationForm: React.FC = () => {
     if (!formData.zip) newErrors.zip = 'ZIP Code is required';
     if (!formData.phone) newErrors.phone = 'Phone number is required';
     if (!formData.officeLocation) newErrors.officeLocation = 'Office Location is required';
-    if (!formData.password) newErrors.password = 'Password is required';
-    if (formData.password !== formData.confirmPassword) newErrors.confirmPassword = 'Passwords must match';
+    if (!formData.password) 
+    {
+        newErrors.password = 'Password is required';
+}
+else{
+    
+        const isValid =
+            passwordRegex.minLength.test(formData.password) &&
+            (formData.password.match(passwordRegex.letters) || (formData.password.match(/[a-zA-Z]/g) || []).length >= 5) &&
+            passwordRegex.upperCase.test(formData.password) &&
+            passwordRegex.numbers.test(formData.password) &&
+            passwordRegex.specialChars.test(formData.password);
+            if(!isValid)
+            newErrors.password = 'Password should meet the requirement';
+            if (isValid && (formData.password !== formData.confirmPassword)) newErrors.confirmPassword = 'Passwords must match';
+
+}
+    
     
     // Optional: Add phone number and zip code validation (e.g., regex)
     const phoneRegex = /^[0-9]{10}$/;
@@ -148,10 +173,11 @@ const RegistrationForm: React.FC = () => {
                                    <label htmlFor="firstName">First Name</label>
                                    <InputText
                                        id="firstName"
+                                       readOnly
                                        value={formData.firstName}
                                        onChange={(e) => handleInputChange(e, 'firstName')}
-                                       className={`custom-input ${errors.firstName ? 'p-invalid' : ''}`}
-                                   />
+                                       className={`${errors.password ? 'p-invalid' : ''}`}/>
+                                   
                            </FloatLabel>
                            {errors.firstName && <small className="p-error">{errors.firstName}</small>}
                            </div>
@@ -164,8 +190,9 @@ const RegistrationForm: React.FC = () => {
                                    <InputText
                                        id="mailingAddress1"
                                        value={formData.mailingAddress1}
+                                       readOnly
                                        onChange={(e) => handleInputChange(e, 'mailingAddress1')}
-                                       className={`custom-input ${errors.mailingAddress1 ? 'p-invalid' : ''}`}
+                                       className={`${errors.password ? 'p-invalid' : ''}`}
                                    />
                                </FloatLabel>
                                {errors.mailingAddress1 && <small className="p-error">{errors.mailingAddress1}</small>}
@@ -183,8 +210,9 @@ const RegistrationForm: React.FC = () => {
                                <InputText
                                    id="lastName"
                                    value={formData.lastName}
+                                   readOnly
                                    onChange={(e) => handleInputChange(e, 'lastName')}
-                                   className={`custom-input ${errors.lastName ? 'p-invalid' : ''}`}
+                                   className={`${errors.password ? 'p-invalid' : ''}`}
                                />
                            </FloatLabel>
                            {errors.lastName && <small className="p-error">{errors.lastName}</small>}
@@ -197,9 +225,10 @@ const RegistrationForm: React.FC = () => {
                            <label htmlFor="mailingAddress2">Mailing Address 2</label>
                            <InputText
                                id="mailingAddress2"
+                               readOnly
                                value={formData.mailingAddress2}
                                onChange={(e) => handleInputChange(e, 'mailingAddress2')}
-                               className="custom-input"
+                               
                            />
                            </FloatLabel>
                            </div>
@@ -228,8 +257,9 @@ const RegistrationForm: React.FC = () => {
                            <InputText
                                id="city"
                                value={formData.city}
+                               readOnly
                                onChange={(e) => handleInputChange(e, 'city')}
-                               className={`custom-input ${errors.city ? 'p-invalid' : ''}`}
+                               className={`${errors.password ? 'p-invalid' : ''}`}
                            />
                            </FloatLabel>
                            {errors.city && <small className="p-error">{errors.city}</small>}
@@ -246,8 +276,9 @@ const RegistrationForm: React.FC = () => {
                            <InputText
                                id="securityRole"
                                value={formData.securityRole}
+                               readOnly
                                onChange={(e) => handleInputChange(e, 'securityRole')}
-                               className={`custom-input ${errors.securityRole ? 'p-invalid' : ''}`}
+                               className={`${errors.securityRole ? 'p-invalid' : ''}`}
                            />
                            </FloatLabel>
                            {errors.securityRole && <small className="p-error">{errors.securityRole}</small>}
@@ -260,8 +291,9 @@ const RegistrationForm: React.FC = () => {
                            <InputText
                                id="state"
                                value={formData.state}
+                               readOnly
                                onChange={(e) => handleInputChange(e, 'state')}
-                               className={`custom-input ${errors.state ? 'p-invalid' : ''}`}
+                               className={`${errors.password ? 'p-invalid' : ''}`}
                            />
                            </FloatLabel>
                            {errors.state && <small className="p-error">{errors.state}</small>}
@@ -289,8 +321,9 @@ const RegistrationForm: React.FC = () => {
                            <InputText
                                id="zip"
                                value={formData.zip}
+                               readOnly
                                onChange={(e) => handleInputChange(e, 'zip')}
-                               className={`custom-input ${errors.zip ? 'p-invalid' : ''}`}
+                               className={`${errors.password ? 'p-invalid' : ''}`}
                            />
                            </FloatLabel>
                            {errors.zip && <small className="p-error">{errors.zip}</small>}
@@ -373,6 +406,7 @@ const RegistrationForm: React.FC = () => {
                            
                            <Password inputId="password"
                            value={formData.password} 
+                           toggleMask
                            onChange={(e) => handleInputChange(e, 'password')} 
                            header={header} 
                            footer={footer} 
@@ -389,9 +423,10 @@ const RegistrationForm: React.FC = () => {
                            <Password
                                inputId="confirmPassword"
                                value={formData.confirmPassword}
+                               toggleMask
                                onChange={(e) => handleInputChange(e, 'confirmPassword')}
                                header={header} 
-                               footer={footer} 
+                               footer={footer}                               
                                className={`custom-input ${errors.confirmPassword ? 'p-invalid' : ''}`}
                            />
 

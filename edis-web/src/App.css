@@ -270,3 +270,17 @@ box-shadow:none !important;
 .p-invalid{
   border: 1px solid red;
 }
+
+.line
+{
+  border: 1.5px solid #000000;
+  height: 1px;
+  width:98%;
+  margin: 10px 0;
+}
+.welcome-message,
+.role-message {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #333;
+}
