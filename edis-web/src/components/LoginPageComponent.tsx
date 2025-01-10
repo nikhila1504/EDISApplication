@@ -41,7 +41,7 @@ const LoginPage = () => {
     // Simulate API call
     setTimeout(() => {
       if (username === 'testAdmin' && password === 'testAdmin') {
-        navigate('/addUser'); // Redirect to the login page
+        navigate('/homePage'); // Redirect to the login page
       } else {
         setError('Invalid username or password.');
       }

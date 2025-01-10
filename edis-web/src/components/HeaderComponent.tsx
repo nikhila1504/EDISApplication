@@ -23,7 +23,7 @@ const HeaderComponent = () => {
 
     return (
         <div >
-            {!isLoginPage && (
+            {!isLoginPage && !isRegistrationPage && (
                 <div >
                     {/* Header Section with Flexbox */}
                     <div className="d-flex justify-content-between align-items-center" style={{ padding: '10px' }}>
@@ -66,6 +66,19 @@ const HeaderComponent = () => {
                 </NavDropdown>
             </nav>
             
+            </div >
+            )}
+
+{isRegistrationPage && (
+                <div >
+                    {/* Header Section with Flexbox */}
+                    <div className="d-flex justify-content-between align-items-center" style={{ padding: '10px' }}>
+                        <img src={logo} alt="Logo" className="logo img-fluid" width='250' />
+                        {<h4 className="mb-3 text-nowrap" style={{ marginLeft: '5%', color: 'red' }}>
+                            DEV
+                        </h4>}
+                        <img src={edislogo} alt="ICMS Logo" className="edis-logo img-fluid" width='250' />
+                    </div>
             </div >
             )}
         </div>
