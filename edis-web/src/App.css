@@ -1,37 +1,21 @@
- /* body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #B31942,#0A3161);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-} */
 .login-section{
-  /* background: linear-gradient(135deg, #B31942,#0A3161); */
   height: 76vh;
 }
-body {
-  /* background: linear-gradient(135deg, #B31942,#0A3161); */
+/* body {
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
   font-family: Arial, sans-serif;
   background-repeat: no-repeat; background-size: cover; background-attachment: fixed;
-  /* overflow: hidden;  */
- }
-/* .login-section .body{
-  background: linear-gradient(135deg, #B31942,#0A3161);
-} */
+ } */
+
 .card-section{
-  /* padding: 1rem; */
   border:1px solid navy;
 }
 
-/* styles.css */
 .login-background {
-  background:linear-gradient(135deg, #B31942,#0A3161); /* Light background for login page */
+  background:linear-gradient(135deg, #B31942,#0A3161); 
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -41,12 +25,11 @@ body {
 }
 
 .form-background {
-  background-color: #e6f7ff; /* Custom background for form pages */
+  background-color: #e6f7ff;
 }
 
- .login-marquee-container {
+.login-marquee-container {
   width: 100%;
-  /* background:linear-gradient(135deg, #B31942,#0A3161);  */
   overflow: hidden;
   padding: 10px 0;
 }
@@ -90,6 +73,7 @@ box-shadow:none !important;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   width: 100%;
   max-width: 600px;
+  margin-top: 10% !important;
 }
 
 .login-card {
@@ -143,13 +127,7 @@ box-shadow:none !important;
 .mobile-input {
   width: 100%;
 }
-/* @media (max-width: 767px) {
-  .mobile-input {
-    width: 150% !important;  
-    margin-left: 0px !important;
-    margin-right: auto;  
-  }
-} */
+
 @media (max-width: 576px) {
   .logo {
       max-width: 140px !important;
@@ -162,7 +140,6 @@ box-shadow:none !important;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* min-height: calc(100vh - 200px);  */
     padding: 20px;
 }
 
@@ -256,15 +233,14 @@ box-shadow:none !important;
 }
 
 .custom-input {
-  border: 1px solid #0A3161; /* Custom border color */
-  border-radius: 4px;        /* Rounded corners */
-  box-shadow: none !important; /* Ensure no shadow on default */
+  border: 1px solid #0A3161; 
+  border-radius: 4px;       
+  box-shadow: none !important; 
 }
-
 .custom-input:focus {
-  border-color: #0A3161; /* Custom border color on focus */
-  box-shadow: none !important; /* Remove focus box shadow */
-  outline: none; /* Optional: removes default outline */
+  border-color: #0A3161; 
+  box-shadow: none !important; 
+  outline: none; 
 }
 
 .p-invalid{

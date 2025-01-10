@@ -7,6 +7,7 @@ import { Button } from 'primereact/button';
 import { Container, Row, Col } from 'react-bootstrap';
 import { RiRestartFill } from 'react-icons/ri';
 import { FaSearch, FaUserPlus } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const userStatuses = [
   { label: 'Active', value: 'active' },
@@ -27,6 +28,11 @@ const locations = [
 ];
 
 const AddUser: React.FC = () => {
+  const navigate = useNavigate();
+  
+      const handleClick = () => {
+          navigate('/addNewUser');
+      };
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -92,7 +98,7 @@ const AddUser: React.FC = () => {
     <Container fluid style={{ marginTop: '2%' }}>
       <Row>
         <Col xs={12} lg={8} className="mx-auto">
-          <Card className="p-fluid" style={{ padding: '1rem' }}>
+          <Card className="p-fluid card-section">
             <h5 className="text-center mb-4" style={{ color: '#0A3161' }}>
               Manage Internal Users
             </h5>
@@ -195,6 +201,7 @@ const AddUser: React.FC = () => {
                     className="p-button-lg"
                     style={{ backgroundColor: '#0A3161' }}
                     icon={<FaUserPlus />}
+                    onClick={handleClick}
                   />
                 </Col>
               </Row>
