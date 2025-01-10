@@ -2,9 +2,8 @@ import React from 'react';
 import { Button } from 'primereact/button';
 import { Dropdown } from 'primereact/dropdown';
 import { FaUser, FaKey, FaSignOutAlt } from 'react-icons/fa';
-import logo from '../images/sbwc_logo.gif';
-import icmslogo from '../images/icms_logo.gif';
-import edislogo from '../images/edis_logo.png';
+import logo from '../images/sbwc.png';
+import edislogo from '../images/edis.png';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useLocation } from 'react-router-dom';
 
@@ -32,7 +31,7 @@ const HeaderComponent = () => {
                         {<h4 className="mb-3 text-nowrap" style={{ marginLeft: '5%', color: 'red' }}>
                             DEV
                         </h4>}
-                        <img src={edislogo} alt="ICMS Logo" className="edis-logo img-fluid" width='350' />
+                        <img src={edislogo} alt="ICMS Logo" className="edis-logo img-fluid" width='250' />
                     </div>
 
             

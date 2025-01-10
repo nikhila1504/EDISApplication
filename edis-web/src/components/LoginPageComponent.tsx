@@ -11,7 +11,7 @@ import 'primereact/resources/themes/lara-light-indigo/theme.css'; // PrimeReact 
 import 'primereact/resources/primereact.min.css';                // PrimeReact Core
 import { useNavigate } from 'react-router-dom';
 import FooterComponent from './FooterComponent.tsx';
-import logo from '../images/sbwc_logo.gif';
+import logo from '../images/sbwc_logo.png';
 import edislogo from '../images/edis_logo.png';
 
 const LoginPage = () => {
@@ -52,11 +52,17 @@ const LoginPage = () => {
   return (
     <div className='login-background'>
          <div className="d-flex justify-content-between align-items-center" style={{ padding: '10px' }}>
-                             <img src={logo} alt="Logo" className="logo img-fluid" width='250' />
+                             <img src={logo} alt="Logo" className="logo img-fluid" width='280' />
+                            
                              {<h4 className="mb-3 text-nowrap" style={{ marginLeft: '5%', color: 'red' }}>
                                  DEV
                              </h4>}
-                             <img src={edislogo} alt="ICMS Logo" className="edis-logo img-fluid" width='350' />
+                             <img src={edislogo} alt="Logo" className="logo img-fluid" width='280' />
+                             {/* {<h5 style={{ marginRight: '5%',color: 'white' }}>
+                             Enforcement Division Information System
+                             
+                             </h5>} */}
+                             {/* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enforcement <br/> Division Information System */}
                          </div>
      {/* <div className="login-marquee-container">
            <div className="marquee-text">
