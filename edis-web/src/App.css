@@ -73,7 +73,7 @@ box-shadow:none !important;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   width: 100%;
   max-width: 600px;
-  margin-top: 10% !important;
+  margin-top: 5% !important;
 }
 
 .login-card {
@@ -257,4 +257,18 @@ box-shadow:none !important;
 } 
 .p-invalid{
   border: 1px solid red !important;
+}
+
+.line
+{
+  border: 1.5px solid #000000;
+  height: 1px;
+  width:98%;
+  margin: 10px 0;
+}
+.welcome-message,
+.role-message {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #333;
 }
