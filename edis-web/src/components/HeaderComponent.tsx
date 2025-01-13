@@ -6,20 +6,14 @@ import logo from '../images/sbwc_logo.gif';
 import icmslogo from '../images/icms_logo.gif';
 import edislogo from '../images/edis_logo.png';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const HeaderComponent = () => {
     const location = useLocation();
+    const navigate = useNavigate();
     const isLoginPage = location.pathname === '/';
-    const isRegistrationPage = location.pathname === '/userRegistration';
-    const menuItems = [
-        { label: 'Profile', icon: <FaUser />, command: () => handleMenuItemClick('Profile') },
-        { label: 'Change Password', icon: <FaKey />, command: () => handleMenuItemClick('Change Password') },
-        { label: 'Logout', icon: <FaSignOutAlt />, command: () => handleMenuItemClick('Logout') },
-    ];
-
-    const handleMenuItemClick = (item: string) => {
-        console.log("You clicked on ${item}");
+    const handleChangePassword = () => {
+        navigate('/changePassword'); 
     };
 
     return (
@@ -60,7 +54,7 @@ const HeaderComponent = () => {
                     menuVariant="light"
                 >
                     <NavDropdown.Item href="#action/3.1"><i className="bi bi-person-circle icon-color"></i> Profile</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">
+                    <NavDropdown.Item href="#action/3.2" onClick={handleChangePassword}>
                         <i className="bi bi-house-lock icon-color"></i> Change Password
                     </NavDropdown.Item>
                     <NavDropdown.Item href="/"><i className="bi bi-power icon-color"></i> Logout</NavDropdown.Item>
