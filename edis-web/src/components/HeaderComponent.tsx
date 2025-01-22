@@ -11,6 +11,7 @@ const HeaderComponent = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const isLoginPage = location.pathname === '/';
+    const isRegistrationPage=location.pathname==='/userRegistration'
     const handleChangePassword = () => {
         navigate('/changePassword'); 
     };

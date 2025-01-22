@@ -4,6 +4,7 @@ import { Form, Button, Col, Row, Card } from 'react-bootstrap';
 import { Password } from 'primereact/password';
 import { Toast } from 'primereact/toast';
 import { FloatLabel } from 'primereact/floatlabel';
+import { Divider } from 'primereact/divider';
 
 interface Errors {
   oldPassword?: string;
@@ -17,7 +18,21 @@ const ChangePasswordComponent = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState<Errors>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
-
+//  const header = <div className="font-bold mb-3">Pick a password</div>;
+  const footer = (
+      <>
+          <Divider />
+          <p className="mt-2">Suggestions</p>
+          <ul className="pl-2 ml-2 mt-0 line-height-3">
+              <li>There must be a minimum of 10 characters.</li>
+              <li>Must have at least 5 letters.</li>
+              <li>Must have at least two uppercase letters.</li>
+              <li>Must have at least two numbers.</li>
+              <li>Must have at least two special characters. (!%$&^*()?&lt;&gt;)</li>
+              <li>The password entered by the user and the confirmed password must be matched.</li>
+          </ul>
+      </>
+  );
   const toastRef = React.useRef<Toast>(null);
 
   const validatePassword = (password: string) => {
@@ -128,9 +143,11 @@ const ChangePasswordComponent = () => {
                   value={newPassword}
                   onChange={handleFieldChange('newPassword')}
                   className={`form-control ${errors.newPassword && isSubmitted ? 'p-invalid' : ''}`}
-                  feedback={false}
+                //   feedback={false}
                   placeholder=" "
-                  type="password"
+                  type="password" 
+                //   header={header} 
+                  footer={footer} 
                   toggleMask
                 />
                 <label htmlFor="newPassword">New Password</label>

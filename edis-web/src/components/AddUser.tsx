@@ -98,115 +98,121 @@ const AddUser: React.FC = () => {
     <Container fluid style={{ marginTop: '2%' }}>
       <Row>
         <Col xs={12} lg={8} className="mx-auto">
-          <Card className="p-fluid card-section">
-            <h5 className="text-center mb-4" style={{ color: '#0A3161' }}>
-              Manage Internal Users
-            </h5>
-            <form onSubmit={handleSubmit} noValidate>
-              <Row>
-                <Col xs={12} sm={6} className="mb-3 mt-2">
-                  <FloatLabel>
-                    <InputText
-                      id="firstName"
-                      value={formData.firstName}
-                      onChange={(e) => handleInputChange('firstName', e.target.value)}
-                      required
-                      className={`custom-input ${errors.firstName ? 'p-invalid' : ''}`}
+          {/* Card with Bootstrap Navbar inside */}
+          <div className="card shadow-sm card-section">
+            <div className="card-header  text-white" style={{backgroundColor:'#B31942'}}>
+              <b>Search</b>
+            </div>
+            <div className="card-body">
+              <h5 className="text-center mb-4" style={{ color: '#0A3161' }}>
+                Manage Internal Users
+              </h5>
+              <form onSubmit={handleSubmit} noValidate>
+                <Row>
+                  <Col xs={12} sm={6} className="mb-3 mt-2">
+                    <FloatLabel>
+                      <InputText
+                        id="firstName"
+                        value={formData.firstName}
+                        onChange={(e) => handleInputChange('firstName', e.target.value)}
+                        required
+                        className={`custom-input ${errors.firstName ? 'p-invalid' : ''}`}
+                      />
+                      <label htmlFor="firstName">First Name</label>
+                    </FloatLabel>
+                    {errors.firstName && <small className="p-error">{errors.firstName}</small>}
+                  </Col>
+                  <Col xs={12} sm={6} className="mb-3 mt-2">
+                    <FloatLabel>
+                      <InputText
+                        id="lastName"
+                        value={formData.lastName}
+                        onChange={(e) => handleInputChange('lastName', e.target.value)}
+                        required
+                        className={`custom-input ${errors.lastName ? 'p-invalid' : ''}`}
+                      />
+                      <label htmlFor="lastName">Last Name</label>
+                    </FloatLabel>
+                    {errors.lastName && <small className="p-error">{errors.lastName}</small>}
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xs={12} sm={6} className="mb-3 mt-2">
+                    <FloatLabel>
+                      <Dropdown
+                        inputId="dd-status"
+                        value={formData.userStatus}
+                        onChange={(e) => handleInputChange('userStatus', e.value)}
+                        options={userStatuses}
+                        className={`custom-input ${errors.userStatus ? 'p-invalid' : ''}`}
+                      />
+                      <label htmlFor="dd-status">User Status</label>
+                    </FloatLabel>
+                    {errors.userStatus && <small className="p-error">{errors.userStatus}</small>}
+                  </Col>
+                  <Col xs={12} sm={6} className="mb-3 mt-2">
+                    <FloatLabel>
+                      <Dropdown
+                        inputId="dd-role"
+                        value={formData.role}
+                        onChange={(e) => handleInputChange('role', e.value)}
+                        options={roles}
+                        className={`custom-input ${errors.role ? 'p-invalid' : ''}`}
+                      />
+                      <label htmlFor="dd-role">Role</label>
+                    </FloatLabel>
+                    {errors.role && <small className="p-error">{errors.role}</small>}
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xs={12} className="mb-3 mt-2">
+                    <FloatLabel>
+                      <Dropdown
+                        inputId="dd-location"
+                        value={formData.location}
+                        onChange={(e) => handleInputChange('location', e.value)}
+                        options={locations}
+                        className={`custom-input ${errors.location ? 'p-invalid' : ''}`}
+                      />
+                      <label htmlFor="dd-location">Location</label>
+                    </FloatLabel>
+                    {errors.location && <small className="p-error">{errors.location}</small>}
+                  </Col>
+                </Row>
+                <Row className="justify-content-center mt-3">
+                  <Col xs="auto" className="mb-2">
+                    <Button
+                      label="Reset"
+                      type="reset"
+                      className="p-button-lg"
+                      onClick={handleReset}
+                      style={{ backgroundColor: '#0A3161' }}
+                      icon={<RiRestartFill size={20} />}
                     />
-                    <label htmlFor="firstName">First Name</label>
-                  </FloatLabel>
-                  {errors.firstName && <small className="p-error">{errors.firstName}</small>}
-                </Col>
-                <Col xs={12} sm={6} className="mb-3 mt-2">
-                  <FloatLabel>
-                    <InputText
-                      id="lastName"
-                      value={formData.lastName}
-                      onChange={(e) => handleInputChange('lastName', e.target.value)}
-                      required
-                      className={`custom-input ${errors.lastName ? 'p-invalid' : ''}`}
+                  </Col>
+                  <Col xs="auto" className="mb-2">
+                    <Button
+                      label="Search"
+                      type="submit"
+                      className="p-button-lg"
+                      style={{ backgroundColor: '#0A3161' }}
+                      icon={<FaSearch />}
                     />
-                    <label htmlFor="lastName">Last Name</label>
-                  </FloatLabel>
-                  {errors.lastName && <small className="p-error">{errors.lastName}</small>}
-                </Col>
-              </Row>
-              <Row>
-                <Col xs={12} sm={6} className="mb-3 mt-2">
-                  <FloatLabel>
-                    <Dropdown
-                      inputId="dd-status"
-                      value={formData.userStatus}
-                      onChange={(e) => handleInputChange('userStatus', e.value)}
-                      options={userStatuses}
-                      className={`custom-input ${errors.userStatus ? 'p-invalid' : ''}`}
+                  </Col>
+                  <Col xs="auto" className="mb-2">
+                    <Button
+                      label="Add User"
+                      type="submit"
+                      className="p-button-lg"
+                      style={{ backgroundColor: '#0A3161' }}
+                      icon={<FaUserPlus />}
+                      onClick={handleClick}
                     />
-                    <label htmlFor="dd-status">User Status</label>
-                  </FloatLabel>
-                  {errors.userStatus && <small className="p-error">{errors.userStatus}</small>}
-                </Col>
-                <Col xs={12} sm={6} className="mb-3 mt-2">
-                  <FloatLabel>
-                    <Dropdown
-                      inputId="dd-role"
-                      value={formData.role}
-                      onChange={(e) => handleInputChange('role', e.value)}
-                      options={roles}
-                      className={`custom-input ${errors.role ? 'p-invalid' : ''}`}
-                    />
-                    <label htmlFor="dd-role">Role</label>
-                  </FloatLabel>
-                  {errors.role && <small className="p-error">{errors.role}</small>}
-                </Col>
-              </Row>
-              <Row>
-                <Col xs={12} className="mb-3 mt-2">
-                  <FloatLabel>
-                    <Dropdown
-                      inputId="dd-location"
-                      value={formData.location}
-                      onChange={(e) => handleInputChange('location', e.value)}
-                      options={locations}
-                      className={`custom-input ${errors.location ? 'p-invalid' : ''}`}
-                    />
-                    <label htmlFor="dd-location">Location</label>
-                  </FloatLabel>
-                  {errors.location && <small className="p-error">{errors.location}</small>}
-                </Col>
-              </Row>
-              <Row className="justify-content-center mt-3">
-                <Col xs="auto" className="mb-2">
-                  <Button
-                    label="Reset"
-                    type="reset"
-                    className="p-button-lg"
-                    onClick={handleReset}
-                    style={{ backgroundColor: '#0A3161' }}
-                    icon={<RiRestartFill size={20} />}
-                  />
-                </Col>
-                <Col xs="auto" className="mb-2">
-                  <Button
-                    label="Search"
-                    type="submit"
-                    className="p-button-lg"
-                    style={{ backgroundColor: '#0A3161' }}
-                    icon={<FaSearch />}
-                  />
-                </Col>
-                <Col xs="auto" className="mb-2">
-                  <Button
-                    label="Add User"
-                    type="submit"
-                    className="p-button-lg"
-                    style={{ backgroundColor: '#0A3161' }}
-                    icon={<FaUserPlus />}
-                    onClick={handleClick}
-                  />
-                </Col>
-              </Row>
-            </form>
-          </Card>
+                  </Col>
+                </Row>
+              </form>
+            </div>
+          </div>
         </Col>
       </Row>
     </Container>
